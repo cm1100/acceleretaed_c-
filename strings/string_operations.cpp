@@ -1,6 +1,7 @@
 #include <iostream>
 #include<vector>
 #include<algorithm>
+#include<cctype>
 
 
 using namespace std;
@@ -100,8 +101,37 @@ bool not_url_char(char c){
 }
 
 
+
 string::const_iterator url_end(string::const_iterator b , string::const_iterator e){
-    
+    return find_if(b,e,not_url_char);    
+}
+
+
+string::const_iterator url_beg(string::const_iterator b , string::const_iterator e){
+
+    static const string sep = "://";
+    typedef string::const_iterator iter;
+
+    iter i = b;
+
+    while((i=search(i,e,sep.begin(),sep.end()))!=e){
+        if(i!=b && i+sep.size()!=e){
+            iter beg = i;
+            while (beg!=b && isalpha(beg[-1]))
+            {
+                --beg;
+            }
+            if(beg!=i&&!not_url_char(i[sep.size()])){
+                return beg;
+            }
+
+
+            
+        }     
+        i+=sep.size();
+
+    }
+    return e;
 }
 
 vector<string> find_urls(const string s){

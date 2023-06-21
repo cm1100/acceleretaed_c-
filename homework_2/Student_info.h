@@ -16,6 +16,8 @@ std::istream& read(std::istream& is,Student_info&s);
 std::istream & read_hw(std::istream& in,std::vector<double>&hw );
 bool compare(const Student_info&x , const Student_info & y);
 
+bool did_all_hw(const Student_info&s);
+
 
 
 #endif

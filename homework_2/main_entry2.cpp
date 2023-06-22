@@ -36,13 +36,7 @@ int main(){
 
 
     write_analysis(cout,"median",median_analysis,did,didnt);
-    
 
-
-    
-
-
-    
 
 
 

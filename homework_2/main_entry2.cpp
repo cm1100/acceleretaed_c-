@@ -3,13 +3,14 @@
 #include<stdexcept>
 #include"Student_info.h"
 #include"grade.h"
+#include"analysis.h"
 
 
 using namespace std;
 
 int main(){
 
-    vector<Student_info> students,did,didnt;
+    vector<Student_info> did,didnt;
     Student_info record;
 
 
@@ -21,15 +22,24 @@ int main(){
             didnt.push_back(record);
 
         
-        if(did.empty()){
-            cout<<"No student did all the homework";
-        }
-
-        if(didnt.empty()){
-            cout<<"every student did the homework";
-        }
+   
 
     }
+
+     if(did.empty()){
+        cout<<"No student did all the homework"<<endl;
+    }
+
+    if(didnt.empty()){
+        cout<<"every student did the homework"<<endl;
+    }
+
+
+    write_analysis(cout,"median",median_analysis,did,didnt);
+    
+
+
+    
 
 
     

@@ -129,3 +129,28 @@ list<Student_info> extract_fails_apr_4(list<Student_info>& students){
     return fail;
 }
 
+
+// extract fails approaches using new data structures
+
+bool pgrade(const Student_info & s){
+    return !fgrade(s);
+}
+
+vector<Student_info> extract_fails_apr_5(vector<Student_info>& students){
+    vector<Student_info> fail;
+    remove_copy_if(students.begin(),students.end(),back_inserter(fail),pgrade);
+
+    // remove if is copying all the passed students in the front and returning iterator on the one past element after passing
+    students.erase(remove_if(students.begin(),students.end(),fgrade),students.end());
+
+}
+
+vector<Student_info> extract_fails_apr_6(vector<Student_info>& students){
+   vector<Student_info>::iterator iter = stable_partition(students.begin(),
+   students.end(),pgrade);
+   vector<Student_info> fail (iter,students.end());
+   students.erase(iter,students.end());
+
+   return fail;
+
+}

@@ -4,6 +4,13 @@
 class Student_info{
 
     public:
+    std::string getName() const{
+        return name;
+    }
+
+    bool valid(){
+        return !homework.empty();
+    }
     std::istream & read(std::istream&);
     double grade() const;
 

@@ -57,3 +57,8 @@ double grade(double midterm , double final, const vector<double>&hw){
 double Student_info::grade() const{
     return ::grade(midterm,final,homework);
 }
+
+
+bool compare(Student_info& x , Student_info & y){
+    return x.getName()<y.getName();
+}

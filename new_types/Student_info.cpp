@@ -62,3 +62,9 @@ double Student_info::grade() const{
 bool compare(Student_info& x , Student_info & y){
     return x.getName()<y.getName();
 }
+
+Student_info::Student_info():midterm(0),final(0){}
+
+Student_info::Student_info(istream&is){
+    read(is);
+}

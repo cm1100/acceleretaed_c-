@@ -8,7 +8,7 @@ using namespace std;
 
 int main(){
 
-    vector<int> arr= {8,4,5,0,0,0,0,7};
+    vector<int> arr= {1,0,2,3,0,4,5,0};
     /*
     1 0 0 2 3 0 4 5
     1 
@@ -18,17 +18,16 @@ int main(){
    unordered_map<int,int> m;
 
    int i =0;
+   int number_of_zeroes;
    while(i<arr.size()){
 
-    if(arr[i]==0){
-            int j=arr.size()-1;
-            while(j>i+1){
-                arr[j]=arr[j-1];
-                j--;
-            }
-            arr[i+1]=arr[i];
-            i=i+2;
+    if(arr[i]==0 && i+number_of_zeroes<arr.size()){
+          m[number_of_zeroes+i]=0;
+          m[i+number_of_zeroes+1]=0;
+          number_of_zeroes++;  
+            i=i+1;
         }else{
+            m[i+number_of_zeroes]=arr[i];
             i++;
         }
 
@@ -36,7 +35,15 @@ int main(){
 
    }
 
-   
+
+    for (const auto& entry : m) {
+        if(entry.first<arr.size()){
+            arr[entry.first]=entry.second;
+        
+        }
+    }
+
+
 
     copy(arr.begin(),arr.end(),ostream_iterator<int>(cout," "));
 

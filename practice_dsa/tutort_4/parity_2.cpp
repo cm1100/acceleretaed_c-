@@ -5,10 +5,7 @@ using namespace std;
 
 /*
 lets see some cases
-
 what will i like
-
-
 */
 
 int main()
@@ -33,7 +30,7 @@ int main()
     }
 
 
-    
+
    
 
 
